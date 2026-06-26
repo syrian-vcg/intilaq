@@ -4,6 +4,10 @@
   "description": "دعم تلوين الصياغة (Syntax Highlighting) للغة البيانات العربية \"الانطلاق\"",
   "version": "1.0.0",
   "publisher": "intilaq",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/intilaq.git"
+  },
   "engines": {
     "vscode": "^1.75.0"
   },
