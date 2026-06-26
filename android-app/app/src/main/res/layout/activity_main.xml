@@ -55,8 +55,7 @@
                     android:padding="14dp"
                     android:textDirection="locale"
                     android:inputType="textMultiLine|textNoSuggestions"
-                    android:scrollbars="vertical"
-                    android:gravity="top" />
+                    android:scrollbars="vertical" />
 
             </com.google.android.material.card.MaterialCardView>
 
