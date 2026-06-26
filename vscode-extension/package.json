@@ -1,0 +1,31 @@
+{
+  "name": "intilaq-language",
+  "displayName": "الانطلاق (Intilaq)",
+  "description": "دعم تلوين الصياغة (Syntax Highlighting) للغة البيانات العربية \"الانطلاق\"",
+  "version": "1.0.0",
+  "publisher": "intilaq",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "icon": "images/icon.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "intilaq",
+        "aliases": ["الانطلاق", "Intilaq"],
+        "extensions": [".intq", ".intilaq"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "intilaq",
+        "scopeName": "source.intilaq",
+        "path": "./syntaxes/intilaq.tmLanguage.json"
+      }
+    ]
+  }
+}
