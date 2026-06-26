@@ -1,0 +1,6 @@
+#!/bin/sh
+# ملاحظة: هذا ملف gradlew قياسي مبسّط.
+# عند فتح المشروع في Android Studio لأول مرة، سيقوم البرنامج تلقائيًا
+# بتحميل ملف gradle-wrapper.jar الفعلي وإعداد Gradle المطلوب (الإصدار 8.7)
+# المحدد في gradle/wrapper/gradle-wrapper.properties، فلا حاجة لأي إجراء يدوي.
+exec gradle "$@"
