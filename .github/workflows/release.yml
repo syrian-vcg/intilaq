@@ -32,8 +32,14 @@ jobs:
 
       - name: تثبيت حزمة Android SDK المطلوبة (API 34)
         run: |
-          yes | sdkmanager --licenses > /dev/null || true
-          sdkmanager "platforms;android-34" "build-tools;34.0.0"
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -f "$SDKMANAGER" ]; then
+            # بعض صور الرانر تضع الإصدار تحت مجلد رقمي بدل "latest"
+            SDKMANAGER=$(find "$ANDROID_HOME/cmdline-tools" -maxdepth 2 -name sdkmanager -type f | head -n 1)
+          fi
+          echo "استخدام sdkmanager في: $SDKMANAGER"
+          yes | "$SDKMANAGER" --licenses > /dev/null || true
+          "$SDKMANAGER" "platforms;android-34" "build-tools;34.0.0"
 
       - name: صلاحية التنفيذ لـ gradlew
         run: chmod +x ./gradlew
@@ -96,9 +102,16 @@ jobs:
 
       - name: تحديث رقم الإصدار من اسم الوسم (tag)
         working-directory: vscode-extension
+        shell: bash
+        env:
+          TAG_NAME: ${{ github.ref_name }}
         run: |
-          VERSION="${GITHUB_REF_NAME#v}"
+          echo "اسم الوسم كما وصل: [$TAG_NAME]"
+          VERSION=$(echo "$TAG_NAME" | sed 's/^v//')
+          echo "رقم الإصدار بعد الإزالة: [$VERSION]"
           npm pkg set version="$VERSION" --no-git-tag-version
+          echo "تأكيد المحتوى النهائي لحقل version في package.json:"
+          npm pkg get version
 
       - name: تحزيم الإضافة
         working-directory: vscode-extension
