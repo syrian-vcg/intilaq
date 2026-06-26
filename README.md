@@ -99,5 +99,28 @@ android-app/app/src/test/java/com/intilaq/lang/IntilaqTest.java
 ./gradlew test
 ```
 
+## إطلاق إصدار جديد (GitHub Actions)
+
+يحتوي المشروع على workflow جاهز في `.github/workflows/release.yml` يبني **APK** و**VSIX** معًا وينشرهما كـ GitHub Release تلقائيًا.
+
+### طريقة الإصدار
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+بمجرد دفع وسم (tag) يبدأ بحرف `v` (مثل `v1.0.0`، `v1.2.3`)، سيقوم GitHub Actions تلقائيًا بـ:
+1. بناء APK موقَّع (توقيع ذاتي مؤقت صالح للتوزيع المباشر/Sideload) وتشغيل اختبارات الوحدة.
+2. تحزيم إضافة VS Code إلى ملف `.vsix` (برقم إصدار مطابق للوسم تلقائيًا).
+3. إنشاء GitHub Release باسم الوسم، مع رفع `intilaq-vX.X.X.apk` و `intilaq-vX.X.X.vsix` كملفات مرفقة.
+
+### أسرار اختيارية (Secrets)
+لا حاجة لإضافة أي شيء للتشغيل الأساسي — يستخدم الـ workflow كلمة مرور افتراضية لمفتاح التوقيع المؤقت. لتخصيصها (مثلاً عند رغبتك باستخدام keystore ثابت خاص بك لاحقًا)، يمكن إضافة هذين السرّين من إعدادات المستودع (Settings → Secrets and variables → Actions):
+- `ANDROID_KEYSTORE_PASSWORD`
+- `ANDROID_KEY_PASSWORD`
+
+> تنبيه: مفتاح التوقيع المُولَّد في الـ workflow **مؤقت ويُعاد إنشاؤه في كل تشغيل**، فهو مناسب للتوزيع المباشر والتجربة لكنه **لا يصلح** لنشر التطبيق على Google Play (الذي يتطلب مفتاح ثابت دائم). إن رغبت بالنشر على المتجر مستقبلاً، يلزم إنشاء keystore ثابت وتخزينه كسر base64 بدل توليده ديناميكيًا.
+
 ## إضافة VS Code
 راجع `vscode-extension/README.md` للتفاصيل الكاملة لطريقة التشغيل والتحزيم.
+
+
