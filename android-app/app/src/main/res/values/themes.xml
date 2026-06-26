@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Intilaq" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/intilaq_blue</item>
+        <item name="colorPrimaryDark">@color/intilaq_blue_dark</item>
+        <item name="colorAccent">@color/intilaq_blue_light</item>
+        <item name="android:statusBarColor">@color/intilaq_blue_dark</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+</resources>
