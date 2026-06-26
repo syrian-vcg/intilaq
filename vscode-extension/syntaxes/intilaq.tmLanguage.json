@@ -1,0 +1,78 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "الانطلاق",
+    "scopeName": "source.intilaq",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#numbers" },
+        { "include": "#literals" },
+        { "include": "#keywords" },
+        { "include": "#braces" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.number-sign.intilaq",
+                    "match": "#.*$"
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.intilaq",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.intilaq",
+                            "match": "\\\\."
+                        }
+                    ]
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.intilaq",
+                    "match": "(?<![\\p{L}_])-?\\d+(\\.\\d+)?(?![\\p{L}_])"
+                }
+            ]
+        },
+        "literals": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.intilaq",
+                    "match": "(?<![\\p{L}_])(صحيح|خاطئ)(?![\\p{L}_])"
+                },
+                {
+                    "name": "constant.language.null.intilaq",
+                    "match": "(?<![\\p{L}_])(فراغ)(?![\\p{L}_])"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.intilaq",
+                    "match": "(?<![\\p{L}_])(اسم|معرف|مجموعة|حلقة|تعريف|حاجز|نص|كتلة|كائن|قص|لصق|نقل|توريد|تصدير|تنزيل|طباعة|جمع|قسم|ترجمة|فقرة|خانة|صف|هنا|اشعار|بريد|تسمية|حدث|نجح|خطاء)(?![\\p{L}_])"
+                }
+            ]
+        },
+        "braces": {
+            "patterns": [
+                {
+                    "name": "punctuation.section.block.intilaq",
+                    "match": "[{}]"
+                },
+                {
+                    "name": "keyword.operator.assignment.intilaq",
+                    "match": "="
+                }
+            ]
+        }
+    }
+}
