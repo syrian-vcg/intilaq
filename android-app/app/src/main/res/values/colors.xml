@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ألوان العلامة التجارية -->
     <color name="intilaq_blue">#1565C0</color>
     <color name="intilaq_blue_dark">#0D47A1</color>
     <color name="intilaq_blue_light">#42A5F5</color>
+
+    <!-- ألوان عامة -->
     <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
+    <color name="black">#1B2A3B</color>
+
+    <!-- خلفيات -->
+    <color name="bg_page">#F0F4F8</color>
+    <color name="result_bg">#FAFBFF</color>
+    <color name="pipeline_header_bg">#F8FAFF</color>
     <color name="code_bg">#0D1B2A</color>
+    <color name="code_header_bg">#0a1520</color>
+
+    <!-- نصوص وعناصر -->
+    <color name="label_color">#607D8B</color>
+    <color name="divider_color">#E3EAF2</color>
     <color name="code_text">#E0E0E0</color>
 
     <!-- ألوان تلوين الصياغة (Syntax Highlighting) -->
@@ -16,4 +29,10 @@
     <color name="syntax_comment">#78909C</color>
     <color name="syntax_brace">#FFFFFF</color>
     <color name="syntax_error">#EF5350</color>
+
+    <!-- ألوان حالات Pipeline -->
+    <color name="pipeline_waiting">#DDE3ED</color>
+    <color name="pipeline_running">#1E88E5</color>
+    <color name="pipeline_success">#43A047</color>
+    <color name="pipeline_failed">#EF5350</color>
 </resources>
