@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <style name="Theme.Intilaq" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/intilaq_blue</item>
         <item name="colorPrimaryDark">@color/intilaq_blue_dark</item>
         <item name="colorAccent">@color/intilaq_blue_light</item>
         <item name="android:statusBarColor">@color/intilaq_blue_dark</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@color/bg_page</item>
+    </style>
+
+    <style name="ToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
     </style>
 </resources>
