@@ -2,15 +2,15 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/bg_page">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="4dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -18,7 +18,8 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/intilaq_blue"
             app:title="@string/app_name"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white"
+            app:titleTextAppearance="@style/ToolbarTitle" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -31,32 +32,80 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="14dp">
 
-            <!-- منطقة كتابة الكود -->
+            <!-- عنوان قسم المحرر -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/section_editor"
+                android:textColor="@color/label_color"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="6dp" />
+
+            <!-- بطاقة المحرر -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="2dp"
-                app:cardBackgroundColor="@color/code_bg">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/code_bg"
+                app:strokeWidth="0dp">
 
-                <com.intilaq.app.IntilaqEditText
-                    android:id="@+id/editor"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="280dp"
-                    android:background="@android:color/transparent"
-                    android:fontFamily="monospace"
-                    android:gravity="top|start"
-                    android:hint="@string/hint_editor"
-                    android:textColor="@color/code_text"
-                    android:textColorHint="#5C6B7A"
-                    android:textSize="15sp"
-                    android:padding="14dp"
-                    android:textDirection="locale"
-                    android:inputType="textMultiLine|textNoSuggestions"
-                    android:scrollbars="vertical" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
+                    <!-- شريط dots -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:background="@color/code_header_bg">
+
+                        <View android:layout_width="10dp" android:layout_height="10dp"
+                            android:background="@drawable/dot_red" />
+                        <View android:layout_width="10dp" android:layout_height="10dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/dot_yellow" />
+                        <View android:layout_width="10dp" android:layout_height="10dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/dot_green" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="editor.intilaq"
+                            android:textColor="#4A6785"
+                            android:textSize="11sp"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                    <com.intilaq.app.IntilaqEditText
+                        android:id="@+id/editor"
+                        android:layout_width="match_parent"
+                        android:layout_height="260dp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="monospace"
+                        android:gravity="top|start"
+                        android:hint="@string/hint_editor"
+                        android:textColor="@color/code_text"
+                        android:textColorHint="#5C6B7A"
+                        android:textSize="14.5sp"
+                        android:padding="14dp"
+                        android:textDirection="locale"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:scrollbars="vertical" />
+
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- أزرار التحكم -->
@@ -64,66 +113,143 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnRun"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="46dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginEnd="8dp"
                     android:text="@string/btn_run"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     app:backgroundTint="@color/intilaq_blue"
+                    app:cornerRadius="10dp"
                     app:icon="@android:drawable/ic_media_play"
-                    app:iconGravity="textStart" />
+                    app:iconGravity="textStart"
+                    app:iconSize="16dp"
+                    app:elevation="3dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSample"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="46dp"
                     android:layout_marginEnd="6dp"
-                    android:text="@string/btn_sample" />
+                    android:text="@string/btn_sample"
+                    android:textSize="13sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/intilaq_blue"
+                    app:strokeWidth="1.5dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnClear"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/btn_clear" />
+                    android:layout_height="46dp"
+                    android:text="@string/btn_clear"
+                    android:textSize="13sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/divider_color"
+                    app:strokeWidth="1.5dp" />
 
             </LinearLayout>
 
-            <!-- عنوان النتيجة -->
+            <!-- ══ بطاقة خط الأنابيب ══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="@color/divider_color"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:background="@color/pipeline_header_bg">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/pipeline_title"
+                            android:textColor="@color/intilaq_blue_dark"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pipeline"
+                            android:textColor="#90A4AE"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider_color" />
+
+                    <com.intilaq.app.PipelineView
+                        android:id="@+id/pipelineView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ══ النتيجة ══ -->
             <TextView
                 android:id="@+id/resultStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="@string/result_title"
+                android:layout_marginTop="16dp"
                 android:textColor="@color/intilaq_blue_dark"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-            <!-- منطقة عرض النتيجة (JSON) أو الخطأ -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="12dp"
                 app:cardElevation="1dp"
-                app:cardBackgroundColor="#F4F6F9">
+                app:cardBackgroundColor="@color/result_bg"
+                app:strokeColor="@color/divider_color"
+                app:strokeWidth="1dp">
 
                 <TextView
                     android:id="@+id/resultOutput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:minHeight="120dp"
+                    android:minHeight="100dp"
                     android:padding="14dp"
                     android:textColor="@color/black"
                     android:textIsSelectable="true"
-                    android:textSize="14sp" />
+                    android:textSize="13sp"
+                    android:lineSpacingMultiplier="1.5"
+                    android:visibility="gone" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -132,12 +258,18 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/copy"
-                android:visibility="gone" />
+                android:textColor="@color/intilaq_blue"
+                android:visibility="gone"
+                app:icon="@android:drawable/ic_menu_share"
+                app:iconSize="14dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/intilaq_blue" />
+
+            <View android:layout_width="match_parent" android:layout_height="24dp" />
 
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
