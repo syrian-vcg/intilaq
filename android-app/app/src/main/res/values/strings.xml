@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">الانطلاق</string>
+
+    <!-- محرر -->
+    <string name="section_editor">EDITOR · المحرر</string>
     <string name="hint_editor">اكتب نص لغة الانطلاق هنا…\n\nمثال:\nكائن {\n    اسم = \"أحمد\"\n    خانة = 25\nحاجز\n}</string>
+
+    <!-- أزرار -->
     <string name="btn_run">تشغيل وتحليل</string>
+    <string name="btn_running">جاري التشغيل…</string>
     <string name="btn_clear">تفريغ</string>
     <string name="btn_sample">مثال</string>
+
+    <!-- Pipeline -->
+    <string name="pipeline_title">خط الأنابيب</string>
+
+    <!-- نتيجة -->
     <string name="result_title">النتيجة (JSON)</string>
-    <string name="success_message">تم التحليل بنجاح ✓</string>
-    <string name="error_message">خطأ في التحليل ✗</string>
-    <string name="copy">نسخ</string>
-    <string name="copied">تم النسخ</string>
+    <string name="success_message">✓  تم التحليل بنجاح</string>
+    <string name="error_message">✕  خطأ في التحليل</string>
+    <string name="copy">نسخ النتيجة</string>
+    <string name="copied">تم النسخ ✓</string>
 </resources>
